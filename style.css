@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
+
+body{
+    background-color: #66cfff;
+    color: rgb(90, 8, 8);
+    font-family: "Signika Negative", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+div input{
+    font-family: "Signika Negative", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+form{
+    left: 50%;
+    top: 50%;
+    margin-left: -13%;
+    position: absolute;
+    margin-top: -22%;
+}
+
+input, select, textarea{
+    background-color: #a2d2ff;
+    padding: 5px;
+    border-radius: 1vh;
+    box-shadow: 2px 2px #003049;
+}
+
+#userInterest{
+    padding-bottom: 3vh;
+}
+
+#buttons{
+    text-align: center;
+    margin-left: -5%;
+}
+
+#buttons input{
+    margin-left: 1vw;
+}
+
+fieldset{
+    margin-bottom: 2vh;
+    background-color:rgb(225, 241, 255);
+    border-radius: 2vh;
+    border: 3.5px rgb(111, 90, 231) solid;
+}

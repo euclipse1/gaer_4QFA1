@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gaer_4QFA1</title>
+</head>
+<body>
+    <style>
+        .invalid{
+            border: 2px solid red;
+        }
+
+        .valid{
+            border: 2px solid rgb(0, 189, 0);
+        }
+    </style>
+    <form id="signUp" onsubmit="return outputInfo()">
+        <fieldset form="login">
+        <legend>User Login</legend>
+        <label for="Name">Name:</label>
+        <input type="text" id="userName" name="Name" onblur="validateInput(this)" onfocus="resetInput(this)"><br><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="Username" onblur="validateInput(this)" onfocus="resetInput(this)"><br><br>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer not to mention">Prefer not to mention</option>
+        </select><br><br>
+        <label for="pword">Password:</label>
+        <input type="password" id="pword" name="Password" onblur="validateInput(this)" onfocus="resetInput(this)"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" onblur="validateInput(this)" onfocus="resetInput(this)"><br><br>
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="Address" rows="5" cols="50" onblur="validateInput(this)" onfocus="resetInput(this)"></textarea><br><br>
+        <label for="interests">Interests:</label><br>
+        <textarea id="interest" name="Interests" rows="5" cols="50" onblur="validateInput(this)" onfocus="resetInput(this)"></textarea><br><br>
+
+        <div id="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset" onclick="resetForm()">
+        </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>User Information</legend>
+            <div id="userData"></div>
+        <div id="userInterest"></div>
+        </fieldset>
+        
+    </form>
+    <script>
+        function resetForm() {
+            document.getElementById("signUp").reset();
+            document.getElementById("userData").innerHTML = "";
+        }
+
+       function outputInfo(){
+            var formData = document.getElementById("signUp").elements;
+            var userData = "<h2>All About The User</h2>";
+
+            for (var i = 0; i < 6; i++) {
+                if (formData[i].tagName === "INPUT" || formData[i].tagName === "TEXTAREA" || formData[i].tagName === "SELECT") {
+                    userData += "<p>" + formData[i].name + ": " + formData[i].value + "</p>";
+                }
+            }
+            var hobby = document.getElementById("interest").value;
+            var interest = "Interests: ''"+ hobby + "''";
+            document.getElementById("userData").innerHTML = userData + interest;
+            return false;
+        }
+    </script>
+    <script>
+        function validateInput(inputElement) {
+            if (inputElement.value.trim() === "") {
+                inputElement.classList.add("invalid");
+            } else {
+                inputElement.classList.remove("invalid");
+                inputElement.classList.add("valid");
+            }
+        }
+
+        function resetInput(inputElement) {
+            inputElement.classList.remove("invalid");
+            inputElement.classList.remove("valid");
+        }
+    </script>
+    
+
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
